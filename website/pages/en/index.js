@@ -6,7 +6,7 @@
  */
 
 const React = require('react');
-
+const LazyHero = require('react-lazy-hero');
 const CompLibrary = require('../../core/CompLibrary.js');
 
 const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
@@ -19,13 +19,15 @@ class HomeSplash extends React.Component {
     const {baseUrl, docsUrl} = siteConfig;
     const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
     const langPart = `${language ? `${language}/` : ''}`;
-    const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
+    const docUrl = doc => `${baseUrl}''/${langPart}${doc}`;
 
     const SplashContainer = props => (
+      <div parallaxOffset={1} imageSrc={`${baseUrl}img/splash.svg`} >
       <div className="homeContainer">
         <div className="homeSplashFade">
           <div className="wrapper homeWrapper">{props.children}</div>
         </div>
+      </div>
       </div>
     );
 
